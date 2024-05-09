@@ -23,6 +23,11 @@ const Background = styled.img`
   min-width: 100dvw;
   height: 100%;
   min-height: 100dvh;
+
+  @media (max-width: 900px) {
+    min-width: none;
+    width: auto;
+  }
 `;
 
 const Content = styled.div`
@@ -35,6 +40,10 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 900px) {
+    padding: 0 2rem;
+  }
 `;
 
 const Block = styled.div`
@@ -48,6 +57,11 @@ const HeaderText = styled.h1`
   color: var(--bg);
   font-weight: 500;
   text-transform: uppercase;
+
+  @media (max-width: 900px) {
+    font-size: 5rem;
+    text-align: center;
+  }
 `;
 
 const SubHeader = styled.h2`
@@ -56,6 +70,11 @@ const SubHeader = styled.h2`
   font-weight: 400;
   line-height: 1.5;
   width: 42%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const Floor = styled.div`

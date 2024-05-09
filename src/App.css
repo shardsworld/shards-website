@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "aeonik";
+  font-weight: 400;
+  src: url("./assets/fonts/AeonikProTRIAL-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "aeonik";
+  font-weight: 300;
+  src: url("./assets/fonts/AeonikProTRIAL-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "aeonik";
+  font-weight: 500;
+  src: url("./assets/fonts/AeonikProTRIAL-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "aeonik";
+  font-weight: 200;
+  src: url("./assets/fonts/AeonikPro-Thin.otf") format("opentype");
+}

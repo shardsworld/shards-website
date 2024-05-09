@@ -58,6 +58,11 @@ const SubHeader = styled.h2`
   width: 42%;
 `;
 
+const Floor = styled.div`
+  width: 100%;
+  height: 10dvh;
+`;
+
 const Hero = () => {
   return (
     <StyledHero>
@@ -74,7 +79,7 @@ const Hero = () => {
             <EmailSignup />
           </div>
         </Block>
-        <div />
+        <Floor />
       </Content>
     </StyledHero>
   );

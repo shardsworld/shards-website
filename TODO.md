@@ -1,6 +1,5 @@
 # Unsorted
 
-- Favicon
-- SEO stuff
+- Add twitter to index.html
 
 # Sorted

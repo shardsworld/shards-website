@@ -45,6 +45,7 @@ const Button = styled.button`
   font-size: 1.6rem;
   font-weight: 400;
   white-space: nowrap;
+  cursor: pointer;
 
   @media (max-width: 900px) {
     font-size: 1.5rem;

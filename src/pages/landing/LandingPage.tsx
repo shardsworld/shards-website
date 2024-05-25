@@ -5,6 +5,7 @@ const StyledLandingPage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 1200dvh;
 `;
 
 const LandingPage = () => {

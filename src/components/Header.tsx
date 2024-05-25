@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import logo from "../assets/logo/small.png";
+import logo from "../assets/logo/logo.svg";
 
 const StyledHeader = styled.div`
   width: 100%;

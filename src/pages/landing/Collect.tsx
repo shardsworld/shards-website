@@ -73,6 +73,11 @@ const Collect = ({ percent }: Props) => {
             header="Lorem ipsum dolor"
             body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
           />
+          <ShardToCard
+            index={2}
+            header="Lorem ipsum dolor"
+            body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
+          />
         </ShardContainer>
       </Content>
     </StyledCollect>

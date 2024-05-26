@@ -29,7 +29,7 @@ const ShardContainer = styled.div`
 `;
 
 const Shard = styled.img`
-  height: 80%;
+  height: 75%;
 `;
 
 const Number = styled.div`

@@ -8,6 +8,7 @@ import Hero from "./Hero";
 import Field from "./Field";
 import Collect from "./Collect";
 import Inventory from "./Inventory";
+import Use from "./Use";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -111,7 +112,7 @@ const LandingPage = () => {
         <Hero percent={percents[0]} />
 
         <VerticalPageContainer>
-          <PseudoPage>meow</PseudoPage>
+          <Use percent={percents[3]} />
           <Collect percent={percents[2]} />
           <Field percent={percents[1]} />
         </VerticalPageContainer>

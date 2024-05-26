@@ -3,6 +3,7 @@ import { useState } from "react";
 import Poll from "./Poll";
 import Buy from "./Buy";
 import Engage from "./Engage";
+import Sell from "./Sell";
 
 enum UseType {
   VOTE = "vote",
@@ -28,6 +29,7 @@ const COMPONENTS: Record<string, JSX.Element> = {
   [UseType.VOTE]: <Poll />,
   [UseType.PURCHASE]: <Buy />,
   [UseType.ENGAGE]: <Engage />,
+  [UseType.TRADE]: <Sell />,
 };
 
 const StyledUse = styled.div`

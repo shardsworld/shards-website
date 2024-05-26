@@ -38,6 +38,8 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         outline: none;
         background: none;
+        -moz-appearance: textfield;
+        appearance: textfield;
 
         // Remove arrows from number input
         &::-webkit-outer-spin-button,

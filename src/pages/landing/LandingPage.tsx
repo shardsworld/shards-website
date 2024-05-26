@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 import hero from "../../assets/backgrounds/hero-bg-tall.png";
 import heroOverlay from "../../assets/backgrounds/overlay-tall.png";
-import logo from "../../assets/logo/logo.svg";
 import { useEffect, useState } from "react";
 import { SECTIONS, SPEED } from "../../app/constants/animation";
 import Hero from "./Hero";
+import Field from "./Field";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -72,44 +72,6 @@ const BackgroundOverlay = styled.img`
   }
 `;
 
-const Content = styled.div`
-  width: 100%;
-  max-width: 120rem;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 900px) {
-    padding: 0 2rem;
-  }
-`;
-
-const Floor = styled.div`
-  width: 100%;
-  height: 10dvh;
-`;
-
-const ShardsContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Shard = styled.img`
-  height: 20rem;
-`;
-
-const ShardText = styled.div`
-  font-size: 20rem;
-  font-weight: 500;
-  margin-left: 2.4rem;
-  color: var(--bg);
-  text-transform: uppercase;
-`;
-
 const LandingPage = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
 
@@ -149,22 +111,7 @@ const LandingPage = () => {
         <VerticalPageContainer>
           <PseudoPage>meow</PseudoPage>
           <PseudoPage>meow</PseudoPage>
-          <PseudoPage>
-            <Content>
-              <div />
-              <ShardsContainer
-                style={{
-                  transform: `translateY(${
-                    Math.max(1 - percents[1] * 1.5, 0) * 200
-                  }%)`,
-                }}
-              >
-                <Shard src={logo} alt="shard" />
-                <ShardText>shards</ShardText>
-              </ShardsContainer>
-              <Floor />
-            </Content>
-          </PseudoPage>
+          <Field percent={percents[1]} />
         </VerticalPageContainer>
         <BackgroundOverlay src={heroOverlay} alt="background" />
       </TransformContainer>

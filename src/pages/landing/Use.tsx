@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Poll from "./Poll";
+import Buy from "./Buy";
 
 enum UseType {
   VOTE = "vote",
@@ -24,6 +25,7 @@ const DESCRIPTIONS = {
 
 const COMPONENTS: Record<string, JSX.Element> = {
   [UseType.VOTE]: <Poll />,
+  [UseType.PURCHASE]: <Buy />,
 };
 
 const StyledUse = styled.div`

@@ -13,13 +13,18 @@ export const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setShards: (state, action: PayloadAction<number | null>) => {
-      state.shards = action.payload;
+    addShards: (state, action: PayloadAction<number>) => {
+      state.shards = state.shards
+        ? state.shards + action.payload
+        : action.payload;
+    },
+    removeShards: (state, action: PayloadAction<number>) => {
+      state.shards = state.shards ? state.shards - action.payload : 0;
     },
   },
 });
 
-export const { setShards } = uiSlice.actions;
+export const { addShards, removeShards } = uiSlice.actions;
 
 export const selectShards = (state: RootState) => state.ui.shards;
 

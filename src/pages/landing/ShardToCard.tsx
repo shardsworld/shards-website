@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import shardIcon from "../../assets/logo/logo.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { selectShards, setShards } from "../../state/uiSlice";
+import { addShards, selectShards } from "../../state/uiSlice";
 import pointer from "../../assets/ui/pointer.svg";
 
 const SHARD_MOVE_TIME = 1000;
@@ -138,12 +138,12 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
     setTransform({ x: endX - startX, y: endY - startY });
 
     if (shards === null) {
-      dispatch(setShards(0));
+      dispatch(addShards(0));
     }
 
     setTimeout(() => {
       setOpacity(0);
-      dispatch(setShards((shards || 0) + 1));
+      dispatch(addShards(1));
     }, SHARD_MOVE_TIME);
   };
 

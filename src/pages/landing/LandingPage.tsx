@@ -37,17 +37,6 @@ const VerticalPageContainer = styled.div`
   height: 100%;
 `;
 
-const PseudoPage = styled.div`
-  width: 100dvw;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2.4rem 0;
-  border: 1px solid red;
-  z-index: 1;
-`;
-
 const Background = styled.img`
   position: absolute;
   bottom: 0;

@@ -6,3 +6,6 @@
 - Change address to something else
 
 # Sorted
+
+- Draw attention to first shard
+- Add copy to shards

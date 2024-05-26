@@ -51,30 +51,30 @@ const Collect = ({ percent }: Props) => {
   return (
     <StyledCollect>
       <Content>
-        <Header>Lorem ipsum dolor sit amet</Header>
+        <Header>reward and grow communities</Header>
         <Subheader>
-          Et doloribus blanditiis ea sint laborum aut quasi impedit non odit
-          sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33
-          eveniet provident. Et doloribus blanditiis.
+          Shards redefine community engagement by transforming members into
+          active stakeholders. These tradable Shards offer voting power,
+          exclusive access, and a unique share in the creator's growth.
         </Subheader>
         <ShardContainer>
           <ShardToCard
             wriggle
             indicate={percent > 0.8}
-            header="Lorem ipsum dolor"
-            body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
+            header="Incentivize"
+            body="Content creators can distribute Shards to incentivize their community to engage with their content. This can be done through rewarding active viewers, contributors, or even as a prize for competitions."
           />
           <ShardToCard
-            header="Lorem ipsum dolor"
-            body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
+            header="Purchase"
+            body="Community members can invest in their favorite content creators by purchasing their Shards. This investment can be seen as a way to support the creator's growth and have a share in their success."
           />
           <ShardToCard
-            header="Lorem ipsum dolor"
-            body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
+            header="Engage"
+            body="Shards can be used to vote on important decisions within the community, access exclusive content, trigger actions in streams and much more! The more Shards you have, the more influence you have."
           />
           <ShardToCard
-            header="Lorem ipsum dolor"
-            body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
+            header="Trade"
+            body="Shards can be traded on the Shard platform, allowing users to buy, sell, and trade Shards with other community members. This creates a new economy within the community and allows users to benefit from their investment."
           />
         </ShardContainer>
       </Content>

@@ -66,7 +66,7 @@ const Check = styled.img<{ $show: boolean }>`
   opacity: ${({ $show }) => ($show ? 1 : 0)};
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   height: 4.2rem;
   width: 100%;
   padding: 0 2.4rem;

@@ -12,7 +12,6 @@ const PseudoPage = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 2.4rem 0;
-  border: 1px solid red;
   z-index: 1;
 `;
 

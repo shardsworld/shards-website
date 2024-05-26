@@ -21,6 +21,7 @@ interface Props {
 const Input = ({ placeholder, value, setValue }: Props) => {
   return (
     <StyledInput
+      type="number"
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}

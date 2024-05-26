@@ -59,22 +59,20 @@ const Collect = ({ percent }: Props) => {
         </Subheader>
         <ShardContainer>
           <ShardToCard
-            index={0}
+            wriggle
+            indicate={percent > 0.8}
             header="Lorem ipsum dolor"
             body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
           />
           <ShardToCard
-            index={1}
             header="Lorem ipsum dolor"
             body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
           />
           <ShardToCard
-            index={2}
             header="Lorem ipsum dolor"
             body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
           />
           <ShardToCard
-            index={2}
             header="Lorem ipsum dolor"
             body="Et doloribus blanditiis ea sint laborum aut quasi impedit non odit sapiente ut officia eligendi At facere placeat. Et cupiditate totam 33 eveniet provident. Et doloribus blanditiis."
           />

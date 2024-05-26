@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { SECTIONS, SPEED } from "../../app/constants/animation";
 import Hero from "./Hero";
 import Field from "./Field";
+import Collect from "./Collect";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -110,7 +111,7 @@ const LandingPage = () => {
 
         <VerticalPageContainer>
           <PseudoPage>meow</PseudoPage>
-          <PseudoPage>meow</PseudoPage>
+          <Collect percent={percents[2]} />
           <Field percent={percents[1]} />
         </VerticalPageContainer>
         <BackgroundOverlay src={heroOverlay} alt="background" />

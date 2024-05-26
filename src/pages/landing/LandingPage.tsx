@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import hero from "../../assets/backgrounds/hero-bg-tall.png";
-import heroOverlay from "../../assets/backgrounds/overlay-tall.png";
+import heroOverlay from "../../assets/backgrounds/overlay.png";
 import { useEffect, useState } from "react";
 import { SECTIONS, SPEED } from "../../app/constants/animation";
 import Hero from "./Hero";
@@ -60,10 +60,10 @@ const Background = styled.img`
 
 const BackgroundOverlay = styled.img`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
+  height: 64.732142857dvh;
+  width: 60.522350577%;
   z-index: 1;
 
   @media (max-width: 900px) {

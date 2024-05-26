@@ -7,6 +7,7 @@ import { SECTIONS, SPEED } from "../../app/constants/animation";
 import Hero from "./Hero";
 import Field from "./Field";
 import Collect from "./Collect";
+import Inventory from "./Inventory";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -116,6 +117,7 @@ const LandingPage = () => {
         </VerticalPageContainer>
         <BackgroundOverlay src={heroOverlay} alt="background" />
       </TransformContainer>
+      <Inventory />
     </StyledLandingPage>
   );
 };

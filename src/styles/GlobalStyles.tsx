@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
         /* --main: #003482; */
         --main: #0f2c57;
         --sub: #647AAA;
-        --primary: lightblue;
+        --primary: #0082D8;
     }
 
     * {

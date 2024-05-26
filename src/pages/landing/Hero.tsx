@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-import hero from "../../assets/backgrounds/hero-bg.png";
-import heroOverlay from "../../assets/backgrounds/overlay.png";
+import hero from "../../assets/backgrounds/hero-bg-tall.png";
+import heroOverlay from "../../assets/backgrounds/overlay-tall.png";
 import logo from "../../assets/logo/logo.svg";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
+import { SECTIONS, SPEED } from "../../app/constants/animation";
 
 const ShowHide = styled.div<{ $show: boolean }>`
   opacity: ${({ $show }) => ($show ? 1 : 0)};
@@ -13,28 +14,38 @@ const ShowHide = styled.div<{ $show: boolean }>`
 
 const StyledHero = styled.div`
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 100dvh;
+  height: 300dvh;
   width: 200dvw;
   overflow: hidden;
   display: flex;
+  align-items: flex-end;
 
   transform: translateX(0);
 `;
 
-const PseudoPage = styled.div`
-  flex: 1;
+const VerticalPageContainer = styled.div`
+  width: 100dvh;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+`;
+
+const PseudoPage = styled.div`
+  width: 100dvw;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2.4rem 0;
+  border: 1px solid red;
+  z-index: 1;
 `;
 
 const Background = styled.img`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   height: 100%;
   width: 100%;
@@ -133,21 +144,34 @@ const ShardText = styled.div`
 
 const Hero = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
-  console.log(scrollPercent);
+
+  const percents: Record<number, number> = {};
+  for (let i = 0; i < SECTIONS; i++) {
+    const from = (1 / SECTIONS) * i;
+    const to = (1 / SECTIONS) * (i + 1);
+    const thisPercent = (scrollPercent - from) / (to - from);
+    percents[i] = Math.min(1, Math.max(0, thisPercent));
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      const height = window.innerHeight * 12;
+      const height = window.innerHeight * SECTIONS * SPEED;
       const scroll = window.scrollY;
       const percent = scroll / (height - window.innerHeight);
       setScrollPercent(percent);
     });
+
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
   }, []);
 
   return (
     <StyledHero
       style={{
-        transform: `translateX(${Math.max(-scrollPercent * 100, -50)}%)`,
+        transform: `translate(${-percents[0] * (100 / 2)}%, ${
+          (percents[2] + percents[3]) * (100 / 3)
+        }%)`,
       }}
     >
       <Background src={hero} alt="background" />
@@ -155,10 +179,10 @@ const Hero = () => {
         <Content>
           <Header />
           <Block>
-            <HeaderText $show={scrollPercent < 0.05}>
+            <HeaderText $show={percents[0] < 0.1}>
               Your Stake in Creativity
             </HeaderText>
-            <SubHeader $show={scrollPercent < 0.05}>
+            <SubHeader $show={percents[0] < 0.1}>
               Support your favorite creators and become a meaningful part of
               their creative journey
             </SubHeader>
@@ -167,20 +191,26 @@ const Hero = () => {
         </Content>
       </PseudoPage>
 
-      <PseudoPage>
-        <Content>
-          <div />
-          <ShardsContainer
-            style={{
-              transform: `translateY(${(1 - scrollPercent) * 200}%)`,
-            }}
-          >
-            <Shard src={logo} alt="shard" />
-            <ShardText>shards</ShardText>
-          </ShardsContainer>
-          <Floor />
-        </Content>
-      </PseudoPage>
+      <VerticalPageContainer>
+        <PseudoPage>meow</PseudoPage>
+        <PseudoPage>meow</PseudoPage>
+        <PseudoPage>
+          <Content>
+            <div />
+            <ShardsContainer
+              style={{
+                transform: `translateY(${
+                  Math.max(1 - percents[1] * 1.5, 0) * 200
+                }%)`,
+              }}
+            >
+              <Shard src={logo} alt="shard" />
+              <ShardText>shards</ShardText>
+            </ShardsContainer>
+            <Floor />
+          </Content>
+        </PseudoPage>
+      </VerticalPageContainer>
       <BackgroundOverlay src={heroOverlay} alt="background" />
     </StyledHero>
   );

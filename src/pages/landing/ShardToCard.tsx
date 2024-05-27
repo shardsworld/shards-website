@@ -25,6 +25,11 @@ const IndicatorContainer = styled.div`
   bottom: 2rem;
   right: 4rem;
   transform: rotate(-45deg);
+
+  @media (max-width: 900px) {
+    bottom: 4rem;
+    right: 8rem;
+  }
 `;
 
 const upAndDown = keyframes`
@@ -42,6 +47,10 @@ const upAndDown = keyframes`
 const Incicator = styled.img`
   height: 4rem;
   animation: ${upAndDown} 1s infinite;
+
+  @media (max-width: 900px) {
+    height: 3rem;
+  }
 `;
 
 const Card = styled.div<{ $open: boolean }>`
@@ -133,6 +142,10 @@ const Shard = styled.img`
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+
+  @media (max-width: 900px) {
+    height: 12rem;
+  }
 `;
 
 interface Props {

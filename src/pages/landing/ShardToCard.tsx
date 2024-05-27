@@ -2,13 +2,22 @@ import { useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import shardIcon from "../../assets/logo/logo.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { addShards, selectShards } from "../../state/uiSlice";
+import {
+  addShards,
+  selectShards,
+  selectShowAllCards,
+  showAllCards,
+} from "../../state/uiSlice";
 import pointer from "../../assets/ui/pointer.svg";
 
 const SHARD_MOVE_TIME = 1000;
 
 const StyledShardToCard = styled.div`
   position: relative;
+
+  @media (max-width: 900px) {
+    flex: 1;
+  }
 `;
 
 const IndicatorContainer = styled.div`
@@ -44,6 +53,10 @@ const Card = styled.div<{ $open: boolean }>`
 
   transform: scale(${({ $open }) => ($open ? 1 : 0)});
   transition: transform 0.3s linear;
+
+  @media (max-width: 900px) {
+    width: calc(100% - 1.5rem);
+  }
 `;
 
 const Header = styled.div`
@@ -90,19 +103,24 @@ const wriggle = keyframes`
   }
 `;
 
-const ShardButton = styled.button<{ $wriggle?: boolean }>`
+const ShardButton = styled.button<{ $wriggle?: boolean; $mobile: boolean }>`
   position: relative;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  display: ${({ $mobile }) => ($mobile ? "none" : "flex")};
 
   ${({ $wriggle }) =>
     $wriggle &&
     css`
       animation: ${wriggle} 1s infinite;
     `}
+
+  @media (max-width: 900px) {
+    display: ${({ $mobile }) => ($mobile ? "flex" : "none")};
+  }
 `;
 
 const Shard = styled.img`
@@ -110,6 +128,11 @@ const Shard = styled.img`
   transform: translate(0, 0) scale(1);
   transition: transform ${SHARD_MOVE_TIME}ms;
   cursor: pointer;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 `;
 
 interface Props {
@@ -121,13 +144,16 @@ interface Props {
 
 const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
   const dispatch = useDispatch();
+  const shouldShowAllCards = useSelector(selectShowAllCards);
   const shards = useSelector(selectShards);
   const shardRef = useRef<HTMLImageElement>(null);
-  const [open, setOpen] = useState(false);
+  const [open_, setOpen] = useState(false);
   const [transform, setTransform] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(1);
 
-  const moveShard = () => {
+  const open = open_ || shouldShowAllCards;
+
+  const moveShard = (mobile: boolean) => {
     if (!shardRef.current) return;
     const shardBox = shardRef.current.getBoundingClientRect();
     const startX = shardBox.x;
@@ -137,13 +163,17 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
 
     setTransform({ x: endX - startX, y: endY - startY });
 
+    if (mobile) {
+      dispatch(showAllCards());
+    }
+
     if (shards === null) {
       dispatch(addShards(0));
     }
 
     setTimeout(() => {
       setOpacity(0);
-      dispatch(addShards(1));
+      dispatch(addShards(mobile ? 4 : 1));
     }, SHARD_MOVE_TIME);
   };
 
@@ -155,10 +185,31 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
       </Card>
       <ShardButtonContainer>
         <ShardButton
+          $mobile={false}
           $wriggle={!open && wriggle}
           onClick={() => {
             setOpen(true);
-            moveShard();
+            moveShard(false);
+          }}
+        >
+          <Shard
+            ref={shardRef}
+            style={{
+              transform: `translate(${transform.x}px, ${transform.y}px) scale(${
+                open ? 0.15 : 1
+              })`,
+              opacity,
+            }}
+            src={shardIcon}
+            alt="shard"
+          />
+        </ShardButton>
+        <ShardButton
+          $mobile={true}
+          $wriggle={!open && wriggle}
+          onClick={() => {
+            setOpen(true);
+            moveShard(true);
           }}
         >
           <Shard

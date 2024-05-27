@@ -29,6 +29,7 @@ const Content = styled.div`
 
   @media (max-width: 900px) {
     padding: 0 2rem;
+    width: 100%;
   }
 `;
 
@@ -39,7 +40,8 @@ const HeaderText = styled(ShowHide)`
   text-transform: uppercase;
 
   @media (max-width: 900px) {
-    font-size: 5rem;
+    width: 100%;
+    font-size: 4rem;
     text-align: center;
   }
 `;
@@ -54,6 +56,8 @@ const SubHeader = styled(ShowHide)`
   @media (max-width: 900px) {
     width: 100%;
     text-align: center;
+    line-height: 1.5;
+    font-size: 1.5rem;
   }
 `;
 

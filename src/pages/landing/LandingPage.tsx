@@ -9,6 +9,7 @@ import Field from "./Field";
 import Collect from "./Collect";
 import Inventory from "./Inventory";
 import Use from "./Use";
+import CTA from "./CTA";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ const TransformContainer = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 300dvh;
+  height: ${(SECTIONS - 1) * 100}dvh;
   width: 200dvw;
   overflow: hidden;
   display: flex;
@@ -93,7 +94,7 @@ const LandingPage = () => {
       <TransformContainer
         style={{
           transform: `translate(${-percents[0] * (100 / 2)}%, ${
-            (percents[2] + percents[3]) * (100 / 3)
+            (percents[2] + percents[3] + percents[4] + percents[5]) * (100 / 5)
           }%)`,
         }}
       >
@@ -101,6 +102,8 @@ const LandingPage = () => {
         <Hero percent={percents[0]} />
 
         <VerticalPageContainer>
+          <CTA percent={percents[5]} />
+          <Field percent={percents[1]} />
           <Use percent={percents[3]} />
           <Collect percent={percents[2]} />
           <Field percent={percents[1]} />

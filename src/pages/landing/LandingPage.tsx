@@ -32,7 +32,6 @@ const TransformContainer = styled.div`
 `;
 
 const VerticalPageContainer = styled.div`
-  width: 100dvh;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -46,8 +45,9 @@ const Background = styled.img`
   width: 100%;
 
   @media (max-width: 900px) {
-    min-width: none;
     width: auto;
+    right: 50%;
+    transform: translateX(50%);
   }
 `;
 
@@ -60,8 +60,7 @@ const BackgroundOverlay = styled.img`
   z-index: 1;
 
   @media (max-width: 900px) {
-    min-width: none;
-    width: auto;
+    display: none;
   }
 `;
 

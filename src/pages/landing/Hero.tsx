@@ -46,8 +46,9 @@ const HeaderText = styled(ShowHide)`
   text-align: center;
 
   @media (max-width: 900px) {
-    font-size: 5rem;
+    font-size: 4.4rem;
     text-align: center;
+    width: 100%;
   }
 `;
 
@@ -62,6 +63,7 @@ const SubHeader = styled(ShowHide)`
   @media (max-width: 900px) {
     width: 100%;
     text-align: center;
+    font-size: 1.6rem;
   }
 `;
 

@@ -36,10 +36,18 @@ const Floor = styled.div`
 const ShardsContainer = styled.div`
   display: flex;
   align-items: center;
+
+  @media (min-width: 900px) {
+    opacity: 1 !important;
+  }
 `;
 
 const Shard = styled.img`
   height: 20rem;
+
+  @media (max-width: 900px) {
+    height: 7rem;
+  }
 `;
 
 const ShardText = styled.div`
@@ -48,6 +56,11 @@ const ShardText = styled.div`
   margin-left: 2.4rem;
   color: var(--bg);
   text-transform: uppercase;
+
+  @media (max-width: 900px) {
+    font-size: 6rem;
+    margin-left: 1.2rem;
+  }
 `;
 
 interface Props {
@@ -62,6 +75,7 @@ const Field = ({ percent }: Props) => {
         <ShardsContainer
           style={{
             transform: `translateY(${Math.max(1 - percent * 1.5, 0) * 200}%)`,
+            opacity: percent * 2,
           }}
         >
           <Shard src={logo} alt="shard" />

@@ -48,6 +48,12 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2.4rem;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
 `;
 
 const Header = styled.h2`
@@ -56,6 +62,11 @@ const Header = styled.h2`
   text-transform: uppercase;
   color: var(--bg);
   text-align: center;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    font-size: 3.3rem;
+  }
 `;
 
 const Subheader = styled.div`
@@ -65,6 +76,13 @@ const Subheader = styled.div`
   color: var(--bg);
   text-align: center;
   line-height: 2.4rem;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    max-width: 100%;
+    line-height: 2rem;
+  }
 `;
 
 const UseContainer = styled.div`
@@ -72,12 +90,21 @@ const UseContainer = styled.div`
   align-items: center;
   gap: 2.4rem;
   margin-top: 4rem;
+
+  @media (max-width: 900px) {
+    margin-top: 3rem;
+  }
 `;
 
 const Options = styled.div`
   display: flex;
   gap: 1.2rem;
   margin-top: 4rem;
+
+  @media (max-width: 900px) {
+    margin-top: 3rem;
+    gap: 0.8rem;
+  }
 `;
 
 const Option = styled.button<{ $active: boolean }>`
@@ -95,6 +122,14 @@ const Option = styled.button<{ $active: boolean }>`
 
   background: ${({ $active }) => ($active ? "var(--bg)" : "transparent")};
   color: ${({ $active }) => ($active ? "var(--main)" : "var(--bg)")};
+
+  @media (max-width: 900px) {
+    font-size: 1.3rem;
+    height: 3.4rem;
+    padding: 0 1.8rem;
+    border-radius: 2rem;
+    border: 1.6px solid var(--bg);
+  }
 `;
 
 interface Props {

@@ -160,6 +160,7 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
   const shouldShowAllCards = useSelector(selectShowAllCards);
   const shards = useSelector(selectShards);
   const shardRef = useRef<HTMLImageElement>(null);
+  const shardMobileRef = useRef<HTMLImageElement>(null);
   const [open_, setOpen] = useState(false);
   const [transform, setTransform] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(1);
@@ -168,9 +169,15 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
 
   const moveShard = (mobile: boolean) => {
     if (!shardRef.current) return;
+    if (!shardMobileRef.current) return;
     const shardBox = shardRef.current.getBoundingClientRect();
-    const startX = shardBox.x;
-    const startY = shardBox.y;
+    const startXDesktop = shardBox.x;
+    const startYDesktop = shardBox.y;
+    const shardMobileBox = shardMobileRef.current.getBoundingClientRect();
+    const startXMobile = shardMobileBox.x;
+    const startYMobile = shardMobileBox.y;
+    const startX = Math.max(startXDesktop, startXMobile);
+    const startY = Math.max(startYDesktop, startYMobile);
     const endX = window.innerWidth - shardBox.width - 47;
     const endY = 0 - 30;
 
@@ -226,7 +233,7 @@ const ShardToCard = ({ wriggle, indicate, header, body }: Props) => {
           }}
         >
           <Shard
-            ref={shardRef}
+            ref={shardMobileRef}
             style={{
               transform: `translate(${transform.x}px, ${transform.y}px) scale(${
                 open ? 0.15 : 1

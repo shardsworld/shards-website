@@ -80,7 +80,7 @@ const Collect = ({ percent }: Props) => {
   return (
     <StyledCollect>
       <Content>
-        <Header>reward and grow communities</Header>
+        <Header>transform fans into active stakeholders</Header>
         <Subheader>
           Shards redefine community engagement by transforming members into
           active stakeholders. These tradable Shards offer voting power,

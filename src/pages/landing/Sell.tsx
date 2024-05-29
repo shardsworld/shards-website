@@ -89,12 +89,12 @@ const Sell = () => {
   const dispatch = useDispatch();
   const price = 0.23;
 
-  const [purchased, setPurchased] = useState(false);
+  const [sold, setSold] = useState(false);
   const [amount, setAmount] = useState("");
 
   return (
     <StyledSell>
-      <Section $show={!purchased}>
+      <Section $show={!sold}>
         <Header>Trade Shards</Header>
         <Input
           placeholder="Shards amount"
@@ -121,7 +121,7 @@ const Sell = () => {
           onClick={() => {
             if (!amount) return;
             dispatch(addShards(Number(amount)));
-            setPurchased(true);
+            setSold(true);
             setAmount("");
           }}
         >
@@ -130,12 +130,12 @@ const Sell = () => {
             : `Sell ${Number(amount).toLocaleString()} Shards`}
         </Button>
       </Section>
-      <Section $show={purchased}>
-        <Header>{`${amount} Shards Purchased!!`}</Header>
+      <Section $show={sold}>
+        <Header>{`${amount} Shards Sold!!`}</Header>
         <ShardContainer>
           <Shard src={logo} alt="shard" />
         </ShardContainer>
-        <Button onClick={() => setPurchased(false)}>Buy more</Button>
+        <Button onClick={() => setSold(false)}>Sell more</Button>
       </Section>
     </StyledSell>
   );

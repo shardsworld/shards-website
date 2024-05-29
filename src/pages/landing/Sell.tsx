@@ -127,7 +127,7 @@ const Sell = () => {
         >
           {!amount
             ? "Enter amount"
-            : `Sell ${Number(amount).toLocaleString()} Voltage Shards`}
+            : `Sell ${Number(amount).toLocaleString()} Shards`}
         </Button>
       </Section>
       <Section $show={purchased}>

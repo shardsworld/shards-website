@@ -15,10 +15,10 @@ enum UseType {
 const USES = [UseType.VOTE, UseType.PURCHASE, UseType.ENGAGE, UseType.TRADE];
 
 const DESCRIPTIONS = {
-  [UseType.VOTE]:
-    "Shard holders can vote on decisions within the community, the more Shards you have, the more influence you have.",
   [UseType.PURCHASE]:
     "Shard holders can purchase Shards from their favorite content creators to support their growth.",
+  [UseType.VOTE]:
+    "Shard holders can vote on decisions within the community, the more Shards you have, the more influence you have.",
   [UseType.ENGAGE]:
     "Shard holders can engage with the community by using their Shards to access exclusive content and trigger actions.",
   [UseType.TRADE]:

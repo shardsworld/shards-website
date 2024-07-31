@@ -1,6 +1,6 @@
 # Unsorted
 
-- Lien freaks out with the scrolling being sideways and upwards
+- Lien bothered with the scrolling being sideways and upwards
 - It wasn't clear to Lien that the examples were fake
 - Fix the final girl image, should be a bit wider
 - Chang the styles, white should really be --main
@@ -9,6 +9,3 @@
 - Change address to something else
 
 # Sorted
-
-- Draw attention to first shard
-- Add copy to shards
